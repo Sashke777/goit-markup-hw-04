@@ -23,24 +23,29 @@ img {
     display: block;
 }
 /* Header section */
+/* Загальні стилі для header */
 .header {
-    border-bottom: 1px solid #e7e9fc
+    border-bottom: 1px solid #e7e9fc;
+    box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
-.header-container{
+
+.header-container {
     display: flex;
     align-items: center;
 }
+
 .container {
     max-width: 1158px;
     margin: 0 auto;
     padding: 0 15px;
-    }
+}
 
 .main-nav {
     display: flex;
     align-items: center;
-    
 }
+
+/* Стиль логотипу */
 .logo-class-header {
     font-family: "Raleway", sans-serif;
     font-weight: 700;
@@ -56,11 +61,15 @@ img {
 .logo-span-studio {
     color: #2e2f42;
 }
-.header-menu-container{
+
+/* Стилі для меню */
+.header-menu-container {
     display: flex;
     gap: 40px;
     margin-right: 0;
 }
+
+/* Загальні стилі для посилань меню */
 .nav-link-class {
     font-weight: 500;
     font-size: 16px;
@@ -69,19 +78,39 @@ img {
     color: #2e2f42;
     text-decoration: none;
     padding-top: 24px;
-    padding-bottom: 24px; 
-    display: block;   
+    padding-bottom: 24px;
+    display: block;
 }
 
+/* Стиль ховера для всіх посилань меню */
 .nav-link-class:hover,
 .nav-link-class:focus {
     color: #404bbf;
 }
 
-.header-address-container{
-    display: flex;
-    gap: 40px;  
+/* Специфічні стилі для першого пункту меню з підкресленням */
+.header-menu-container li:first-child .nav-link-class {
+    position: relative;
+    color: #404bbf;
 }
+
+.header-menu-container li:first-child .nav-link-class::after {
+    content: '';
+    width: 48px;
+    height: 4px;
+    background-color: #404bbf;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    border-radius: 2px;
+}
+
+/* Стилі для контактної інформації */
+.header-address-container {
+    display: flex;
+    gap: 40px;
+}
+
 .contact-info {
     font-style: normal;
     color: #434455;
@@ -96,6 +125,7 @@ img {
     color: #434455;
 }
 
+/* Стиль ховера для контактних посилань */
 .contact-link-class:hover,
 .contact-link-class:focus {
     color: #404bbf;
@@ -103,8 +133,14 @@ img {
 
 /* Main section */
 .section-class {
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/people-office\ 1.jpg);
+    max-width: 1440px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     background-color: #2e2f42;
     padding: 188px 0;
+    margin: 0 auto;
 }
 
 .section-heading {
@@ -146,8 +182,6 @@ img {
 .section-features {
    padding: 120px 0;
 }
-
-
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -168,7 +202,18 @@ img {
     margin: 0;
 }
 .features-item {
-    width: calc((100% - 72px) / 4);    
+    width: calc((100% - 72px) / 4);
+    text-align: center;
+}
+.icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 112px;
+    background-color: #f4f4fd;
+    border-radius: 4px;
+    border: 1px solid #8e8f99;
+    margin-bottom: 8px;
 }
 .list-item-heading {
     font-weight: 500;
@@ -226,7 +271,21 @@ img {
     color: #2e2f42;
     margin-bottom: 8px;
 }
+.icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 112px;
+    background-color: #f4f4fd;
+    border-radius: 4px;
+    border: 1px solid #8e8f99;
+    margin-bottom: 8px;
+}
 
+.icon-container svg {
+    width: 64px;
+    height: 64px;
+}
 
 /* Our portfolio */
 .portfolio-section {
@@ -234,7 +293,6 @@ img {
     padding-bottom: 120px;
     background-color: #FFFFFF;
 }
-
 
 .portfolio-heading {
     font-size: 36px;
@@ -258,21 +316,66 @@ img {
 .portfolio-item {
     width: calc((100% - 48px) / 3);
     background-color: #FFFFFF;
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.portfolio-item:hover {
+    box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+.image-container {
+    position: relative;
+    overflow: hidden;
+}
+.overlay-text {
+    position: absolute;
+    top: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: var(--text-color, #f4f4fd);
+    padding: 40px 32px;
+    background-color: #4d5ae5;
+    height: 100%;
+    width: 100%;
+    transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.portfolio-item:hover .overlay-text {
+    transform: translateY(0%);
 }
 .portfolio-content {
     padding: 32px 16px;
     border: 1px solid #e7e9fc;
     border-top: none;
 }
-
+.list-item-heading {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    color: #2e2f42;
+    margin-bottom: 8px;
+}
 
 
 /* Footer section */
 .footer-class {
     background-color: #2e2f42;
     padding: 100px 0;
+    display: flex; 
+    justify-content: left;
+    align-items: baseline;
+    gap: 120px;
+    padding-left: 156px;
 }
-
+.footer-container{
+    display: flex;
+    justify-content: space-between;   
+}
+.footer-logo-container {
+    display: flex;
+    flex-direction: column;
+    margin-right: 120px;
+}
 .logo-class-footer {
     font-family: "Raleway", sans-serif;
     font-weight: 700;
@@ -296,4 +399,46 @@ img {
     letter-spacing: 0.02em;
     font-size: 16px;
     max-width: 264px
+}
+.social-media-container {
+    display: flex;
+    flex-direction: column;
+}
+.social-title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: var(--text-color, #ffffff);
+    margin-bottom: 16px;
+}
+.social-media-list {
+    display: flex;
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.social-media-item {
+    width: 40px;
+    height: 40px;
+}
+.social-media-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--social-bg-color, #4d5ae5);
+    border-radius: 50%;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.social-media-link:hover,
+.social-media-link:focus {
+    background-color: #31d0aa;
+}
+.social-icon {
+    width: 24px;
+    height: 24px;
+    fill: var(--icon-color, #f4f4fd);
 }
