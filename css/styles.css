@@ -401,7 +401,7 @@ img {
 .footer-container{
     display: flex;
     justify-content: space-between;
-       
+    align-items: baseline;
 }
 .footer-logo-container {
     display: flex;
